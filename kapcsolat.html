@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/all.css">
+    <title>Kapcsolat</title>
+</head>
+<body>
+    <div class=glass>
+        <h1>
+            <i class="fas fa-arrow-circle-left" onclick="history.back()" title="Vissza a Bemutatkozáshoz!"></i>
+            Kapcsolat
+        </h1>
+        <div id="contactdata">
+            <span><i class="fas fa-phone-square-alt"></i>06901234567</span>
+            <span><i class="fas fa-at"></i>mail@example.com</span>
+            <span><i class="fas fa-map-marker-alt"></i>6000 Kecskemét, Petőfi Sándor utca 1.</span>
+        </div>        
+        <hr>    
+        <h2>Üzenet küldése</h2>
+        <form action="mailto:adszabo880405@gmail.com" method="post" id="contactform" target="_blank">
+            <div class="form-row half">
+                <label for="name">Név</label>
+                <input type="text" name="sendername" id="sendername" required>
+            </div>
+            <div class="form-row half">
+                <label for="email">E-mail cím</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div class="form-row full">
+                <label for="subject">Üzenet tárgya</label>
+                <input type="text" name="subject" id="subject" required>
+            </div>
+            <div class="form-row full">
+                <label for="message">Üzenet szövege</label>
+                <textarea type="text" name="body" id="body" required></textarea>
+            </div>
+            <div class="form-row full center">
+                <button type="submit">Elküldés</button>
+            </div>
+            
+        </form>
+    </div>
+
+</body>
+</html>
