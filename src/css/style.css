@@ -84,6 +84,9 @@ hr {
     transition: all 2s;
     display: flex;
 }
+a {
+    text-decoration: none;
+}
 #kapcsolat:hover {
     width: 100px;
 }
