@@ -14,6 +14,9 @@ section {
 section:last-child .glass {
     padding-bottom: 0px;
 }
+button {
+    font-size: medium;
+}
 body {
     color: aliceblue;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -87,6 +90,9 @@ body {
     #robot {
         width: 70vw;
         aspect-ratio: 1 / 1;
+    }
+    #robot.hide {
+        display: none;
     }
     .glass {
         width: 77%;
