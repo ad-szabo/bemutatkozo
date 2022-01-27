@@ -1,11 +1,18 @@
+
 :root {
     --background-color: lightblue;
     --glass-color: rgba(82, 161, 230, 0.25);
     --glass-border: rgba(82, 161, 230, 0.3);
-    --height: 'max-context';
 }
-::-webkit-scrollbar {
-    display: none;
+html {
+    scroll-snap-type: x mandatory;
+}
+section {
+    padding: 10px;
+    /* min-height: 100vh; */
+}
+section:last-child .glass {
+    padding-bottom: 0px;
 }
 body {
     color: aliceblue;
@@ -19,6 +26,40 @@ body {
     overflow-x: hidden;
     background-size: 100%;
     background-position: center;
+}
+#hparent {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    height: 90vh;
+    margin: auto;
+    transition: all 1fs;
+}
+#hello {
+    width: 70%;
+    margin: auto;
+    font-size: 6em;
+    rotate: 20deg;
+    transition: all 2s;
+    text-shadow: -1px 0 black, 0 1px black, 3px 0 black, 0 3px black;
+}
+#hello.hide {
+    transform: translate(-100vw,-30vh);
+    transition: all 2s;
+}
+#robot {
+    height: 60%;
+    margin: auto;
+    margin-right: 10px;
+    transition: all 2s;
+}
+#robot.hide {
+    transform: translate(100vw,-30vh);
+    transition: all 2s;
+}
+#hparent.hide {
+    transform: translateY(-100vh);
+    transition: all 2s;
 }
 .glass {
     background: var(--glass-color);
@@ -41,6 +82,18 @@ body {
 @media screen and (max-width:600px) {
     * {
         font-size: small;
+    }
+    #hparent {
+        display: inline-block;
+        height: 90vh;
+    }
+    #hello {
+        font-size: 2em;
+        margin: calc(20vh -  1em) auto 10vh auto;
+    }
+    #robot {
+        width: 70vw;
+        aspect-ratio: 1 / 1;
     }
     .glass {
         width: 77%;
@@ -67,7 +120,40 @@ hr {
     margin-right: -10px;
     padding-right: 15px;
     width: 15px;
-    float:right;
+
+    height: fit-content;
+    transition: all 1s;
+    display: flex;
+}
+#menu {
+    top: 10px;
+    right: 0px;
+    position: fixed;
+    text-orientation: upright;
+    writing-mode: vertical-lr;
+}
+.menu-item {
+   display: none;
+   writing-mode: horizontal-tb;
+   margin: 5px 0px;
+   transition: all 0.5s;
+}
+.menu-item:hover {
+    text-indent: 5px;
+    transition: all 0.5s;
+    text-shadow: -1px 0 black, 0 1px black, 0.5px 0 black, 0 -3px black;
+}
+.menu-decor {
+    width: 0px;
+    height: 0px;
+    border:0px;
+}
+#menu:hover .menu-decor {
+    width: inherit;
+    border: 1px solid white;
+}
+#menu:hover .menu-item{
+   display: inline-block;
 }
 .fix {
     height: var(--height);
@@ -79,20 +165,13 @@ hr {
     margin: 0px 0px 10px 0px;
     text-transform: lowercase;
 }
-#kapcsolat {
-    height: fit-content;
-    transition: all 2s;
-    display: flex;
-}
 a {
     text-decoration: none;
 }
-#kapcsolat:hover {
-    width: 100px;
-}
-#kapcsolat:hover::after {
-    content: ' Kapcsolat';
+#menu:hover {
     display: inline;
+    writing-mode: horizontal-tb;
+    width: 150px;
 }
 .fa-arrow-circle-left {
     width: 20px;
@@ -157,4 +236,17 @@ textarea {
 }
 .center {
     text-align: center;
+}
+::-webkit-scrollbar {
+    background-color: black;
+    background-image: linear-gradient(black,var(--glass-color) 60%,black);
+}
+::-webkit-scrollbar-button {
+    display: none;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--glass-color);
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
